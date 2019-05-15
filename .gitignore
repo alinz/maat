@@ -1,0 +1,6 @@
+node_modules
+zk-single-kafka-single
+build
+.cache
+bin
+temp
