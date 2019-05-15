@@ -2,11 +2,23 @@
 
 a markdown table to typescript compiler for configuration files. It make sure that documentation of configuration is always up to date and be the only source of truth.
 
+## Usage
+
+install using `yarn` or `npm`
+
+```bash
+yarn add maat-config --gloabl
+```
+
+```bash
+maat-config my-config.md > my-config.ts
+```
+
 ## Support
 
-- compile time type check for almost all the primitives types
-- runtime type check for `range` types
-- override using environment variables
+- [x] compile time type check for almost all the primitives types
+- [ ] runtime type check for `range` types
+- [ ] override using environment variables
 
 ## Markdown Table
 
