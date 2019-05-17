@@ -22,7 +22,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "mdtable2json": "0.1.0",
+    "mdtable2json": "0.2.0",
     "typescript": "3.4.5"
   },
   "devDependencies": {
