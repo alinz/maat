@@ -5,6 +5,9 @@ import * as ast from '~/src/ast'
 
 const usage = `
 maat <filename> > config.ts
+
+for example: 
+  maat-config ./doc/config.md > ./src/config.ts
 `
 
 export const compile = (content: string): string => {

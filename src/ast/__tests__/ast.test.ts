@@ -124,7 +124,7 @@ describe('ast test', () => {
     }
 
     const expected = `
-config = (conf: {
+chain = (conf: {
     [key: string]: any;
 }) => {
     const update = { builtin: { features: (val: string) => {

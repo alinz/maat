@@ -1,5 +1,7 @@
 # Maat
 
+> pronounced Maʽat (Egyptian mꜣꜥt /ˈmuʀʕat/)
+
 a markdown table to typescript compiler for configuration files. It make sure that documentation of configuration is always up to date and be the only source of truth.
 
 ## Usage
@@ -29,6 +31,8 @@ the shape of your table should be like this
 |----------|------------|-----|-------|---------|-------------|
 |          |            |     |       |         |             |
 ```
+
+> working with markdown table for configuration is a little bit hard, I would recommend to use (csv-to-markdown-table)[https://www.npmjs.com/package/csv-to-markdown-table]. having a CSV file to update your configuration and generating table is far easier than modify the actual markdown table.
 
 #### Property
 

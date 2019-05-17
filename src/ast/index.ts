@@ -1,5 +1,26 @@
 import * as ts from 'typescript'
 
+const defaultConf = {
+  'a.b.c': 1,
+}
+
+const update = (conf: any) => {
+  const temp = {
+    a: {
+      b: {
+        c: (val: number) => {
+          conf['a.b.c'] = val
+          return temp
+        },
+      },
+    },
+  }
+
+  return temp
+}
+
+update(defaultConf).a.b.c(1)
+
 // creates -> mapId['key'] = valId
 export const createMapSetter = (mapId: string, key: string, valId: string) => {
   return ts.createExpressionStatement(
@@ -16,7 +37,7 @@ export const createReturnBlock = (id: string) => {
   return ts.createReturn(ts.createIdentifier(id))
 }
 
-// creates -> (val: any) => { base['a.b.c'] = val; return parent; }
+// creates -> (val: type) => { mapId['a.b.c'] = val; return parent; }
 export const createSetterFunc = (mapId: string, key: string, type: string, returnId: string) => {
   let typeVal
   switch (type) {
@@ -122,7 +143,7 @@ export const createObjectUpdate = (
 /*
   creates ->
 
-  export const config = (conf: { [key: string]: any }) => {
+  export const chain = (conf: { [key: string]: any }) => {
     const update = {}
 
     return update
@@ -130,7 +151,7 @@ export const createObjectUpdate = (
 */
 export const createConfig = (obj: any) => {
   return ts.createVariableDeclaration(
-    ts.createIdentifier('config'),
+    ts.createIdentifier('chain'),
     undefined,
     ts.createArrowFunction(
       undefined,
@@ -190,7 +211,7 @@ export const createConfig = (obj: any) => {
 
 export const createSource = (obj: any, original: any) => {
   return ts.updateSourceFileNode(ts.createSourceFile('temporary.tsx', '', ts.ScriptTarget.Latest), [
-    createExport(createFlatMap('conf', original)),
+    createExport(createFlatMap('defaultConfig', original)),
     createExport(createConfig(obj)),
   ])
 }

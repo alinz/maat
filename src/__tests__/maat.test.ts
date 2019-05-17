@@ -11,8 +11,8 @@ const sample1 = `
 `
 
 const expected1 = `
-export const conf = { "builtin.features": "gzip, snappy, ssl, sasl, regex, lz4, sasl_gssapi, sasl_plain, sasl_scram, plugins", "client.id": "rdkafka", "metadata.broker.list": undefined };
-export const config = (conf: {
+export const defaultConfig = { "builtin.features": "gzip, snappy, ssl, sasl, regex, lz4, sasl_gssapi, sasl_plain, sasl_scram, plugins", "client.id": "rdkafka", "metadata.broker.list": undefined };
+export const chain = (conf: {
     [key: string]: any;
 }) => {
     const update = { builtin: { features: (val: string) => {
@@ -39,8 +39,8 @@ const sample2 = `
 `
 
 const expected2 = `
-export const conf = { "builtin.features": "gzip, snappy, ssl, sasl, regex, lz4, sasl_gssapi, sasl_plain, sasl_scram, plugins", "client.id": "rdkafka", "metadata.broker.list": undefined, "metadata.broker.list.b": undefined };
-export const config = (conf: {
+export const defaultConfig = { "builtin.features": "gzip, snappy, ssl, sasl, regex, lz4, sasl_gssapi, sasl_plain, sasl_scram, plugins", "client.id": "rdkafka", "metadata.broker.list": undefined, "metadata.broker.list.b": undefined };
+export const chain = (conf: {
     [key: string]: any;
 }) => {
     const update = { builtin: { features: (val: string) => {
